@@ -15,18 +15,17 @@ height = int(img.shape[0] * scale_percent / 100)
 dim = (width, height)
 # resize image
 resized_img = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
-#cv2.imshow('image', resized_img)
+cv2.imshow('Original_image', resized_img)
 
 
-resized_img = cv2.line(resized_img,(0,100),(831,100),(255,255,255),5)
-resized_img = cv2.line(resized_img,(0,340),(831,340),(255,255,255),5)
-#cv2.imshow('image', resized_img)
+resized_img = cv2.line(resized_img,(0,300),(831,300),(255,255,255),5)
+resized_img = cv2.line(resized_img,(0,500),(831,500),(255,255,255),5)
+cv2.imshow('image', resized_img)
 
-back = np.zeros((832,624,1), np.uint8)
-mask = cv2.line(back,(0,100),(831,100),(255,255,255),5)
-mask = cv2.line(back,(0,340),(831,340),(255,255,255),5)
-
-#cv2.imshow('mask',mask)
+back = np.zeros((624,832,1), np.uint8)
+mask = cv2.line(back,(0,300),(831,300),(255,255,255),5)
+mask = cv2.line(back,(0,500),(831,500),(255,255,255),5)
+cv2.imshow('mask',mask)
 
 dst = cv2.inpaint(resized_img,mask,3,cv2.INPAINT_TELEA)
 
